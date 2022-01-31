@@ -39,7 +39,8 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    height: '70vh'
   },
   option: {
     height: '140px',
