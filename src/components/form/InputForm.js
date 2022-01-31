@@ -1,10 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export const InputForm = () => {
+export const InputForm = ({ questions, setQuestions }) => {
+  const [question, setQuestion] = useState('')
+
+  const handleInputChange = (e) => {
+    setQuestion(e.target.value)
+  }
+
+  const handleInputSave = (e) => {
+    e.preventDefault()
+    setQuestions([...questions, question])
+    console.log(questions)
+  }
+
   return (
     <div style={styles.inputContainer}>
-      <label style={styles.label}>1. Pregunta N°1</label>
-      <input style={styles.input} placeholder='Escriba su pregunta...' />
+      <label
+        style={styles.label}
+      >
+        1. Pregunta N°1
+      </label>
+
+      <input
+        type='text'
+        name='question'
+        onChange={handleInputChange}
+        value={question}
+        style={styles.input}
+        placeholder='Escriba su pregunta...'
+      />
+      <button
+        onClick={handleInputSave}
+      >
+        Save
+      </button>
     </div>
   )
 }

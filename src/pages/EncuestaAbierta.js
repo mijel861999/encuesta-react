@@ -7,7 +7,6 @@ import { Form } from '../components/form/Form'
 export const EncuestaAbierta = () => {
   return (
     <div>
-      Encuesta Abierta
       <Form />
     </div>
   )

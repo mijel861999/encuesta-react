@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { InputForm } from './InputForm'
 
 export const Form = () => {
+  const [questions, setQuestions] = useState([])
+
   return (
     <form style={styles.form}>
-      <InputForm />
-      <InputForm />
-      <InputForm />
+      <InputForm
+        setQuestions={setQuestions}
+        questions={questions}
+      />
+      <InputForm
+        setQuestions={setQuestions}
+        questions={questions}
+      />
+      <InputForm
+        setQuestions={setQuestions}
+        questions={questions}
+      />
+      <InputForm
+        setQuestions={setQuestions}
+        questions={questions}
+      />
+      <p>{questions}</p>
       <button style={styles.button}>
         Enviar
       </button>

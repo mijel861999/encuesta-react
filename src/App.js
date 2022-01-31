@@ -29,7 +29,7 @@ function App () {
 const styles = {
   app: {
     width: '100%',
-    height: '100vh',
+    height: '100%',
     minWidth: '320px',
     backgroundColor: 'yellow',
     padding: '20px'
