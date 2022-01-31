@@ -15,8 +15,8 @@ export const Header = () => {
 const styles = {
   header: {
     width: '100%',
-    minWidth: '320px',
-    height: '160px'
+    height: '145px',
+    margin: '60px 0px',
   },
   nav: {
     display: 'flex',

@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
 
-export const InputForm = ({ questions, setQuestions }) => {
-  const [question, setQuestion] = useState('')
+export const InputForm = ({ index, question,questions, setQuestions }) => {
+  const [questionInput, setQuestionInput] = useState('')
 
   const handleInputChange = (e) => {
-    setQuestion(e.target.value)
+    setQuestionInput(e.target.value)
   }
 
   const handleInputSave = (e) => {
     e.preventDefault()
-    setQuestions([...questions, question])
-    console.log(questions)
+    const array = [...questions]
+    array[index] = questionInput;
+
+    setQuestions(array)
   }
 
   return (
@@ -18,18 +20,19 @@ export const InputForm = ({ questions, setQuestions }) => {
       <label
         style={styles.label}
       >
-        1. Pregunta N°1
+        Escribe tu pregunta N° {index}
       </label>
 
       <input
         type='text'
         name='question'
         onChange={handleInputChange}
-        value={question}
+        value={questionInput}
         style={styles.input}
-        placeholder='Escriba su pregunta...'
+        placeholder={question !=='' ? question : 'Escriba su pregunta...'}
       />
       <button
+        style={styles.button}
         onClick={handleInputSave}
       >
         Save
@@ -42,8 +45,10 @@ const styles = {
   inputContainer: {
     display: 'flex',
     flexDirection: 'column',
-    width: '90%',
-    margin: '20px auto'
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    margin: '28px 0px'
   },
   label: {
     fontSize: '2.4rem',
@@ -51,6 +56,15 @@ const styles = {
   },
   input: {
     height: '40px',
+    width: '100%',
     padding: '10px 10px'
+  },
+  button: {
+    width: '100%',
+    height: '30px',
+    color: 'white',
+    background: 'black',
+    border: 'none',
+    cursor: 'pointer'
   }
 }

@@ -30,6 +30,11 @@ export const MainPage = () => {
         description='Descripción de esta encuesta, debe ser muy interesante para que te sigas quedando a leer esto'
         to='/encuesta-opciones'
       />
+      <Option
+        title='3. Encuesta abierta y de opciones'
+        description='Descripción de esta encuesta, debe ser muy interesante para que te sigas quedando a leer esto'
+        to='/encuesta-abierta-opciones'
+      />
     </div>
   )
 }
@@ -40,12 +45,12 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '70vh'
+    height: '100vh'
   },
   option: {
-    height: '140px',
+    height: '190px',
     width: '70%',
-    minWidth: '320px',
+    minWidth: '240px',
     maxWidth: '500px',
     padding: '10px',
     margin: '30px 0px',
