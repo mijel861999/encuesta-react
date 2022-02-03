@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { InputForm } from './InputForm'
 
-export const Form = () => {
-  const [questions, setQuestions] = useState([])
+export const Form = ({ questions, setQuestions }) => {
+  // const [questions, setQuestions] = useState([])
 
   const handleInputCreate = (e) => {
     e.preventDefault()
@@ -37,12 +38,19 @@ export const Form = () => {
         +
       </button>
 
-      <button
+      {/* <button
         onClick={handleInputCreate}
         style={styles.button}
       >
         Crear encuesta
-      </button>
+      </button> */}
+
+      <Link
+        style={styles.link}
+        to='/encuesta-creada'
+      >
+        Ver tu encuesta
+      </Link>
     </form>
   )
 }
@@ -76,5 +84,17 @@ const styles = {
     border: 'none',
     borderRadius: '50px',
     cursor: 'pointer'
+  },
+  link: {
+    display: 'block',
+    width: '150px',
+    height: '40px',
+    margin: '15px auto', 
+    color: 'white',
+    fontSize: '2rem',
+    textDecoration: 'none',
+    textAlign: 'center',
+    background: 'black',
+    borderRadius: '5px'
   }
 }

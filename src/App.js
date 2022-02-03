@@ -1,4 +1,5 @@
 // Librerías
+import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 // Estílos
@@ -11,8 +12,12 @@ import { Header } from './components/Header'
 import { MainPage } from './pages/MainPage'
 import { EncuestaOpciones } from './pages/EncuestaOpciones'
 import { EncuestaAbierta } from './pages/EncuestaAbierta'
+import { EncuestaCreada } from './pages/EncuestaCreada'
 
 function App () {
+
+  const [questions, setQuestions] = useState([])
+
   return (
     // <AppRouter />
     <div style={styles.app} className='App'>
@@ -20,7 +25,8 @@ function App () {
       <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='/encuesta-opciones' element={<EncuestaOpciones />} />
-        <Route path='/encuesta-abierta' element={<EncuestaAbierta />} />
+        <Route path='/encuesta-abierta' element={<EncuestaAbierta questions={questions} setQuestions={setQuestions}/>} />
+        <Route path='/encuesta-creada' element={<EncuestaCreada questions={questions} setQuestions={setQuestions} />} />
       </Routes>
     </div>
   )

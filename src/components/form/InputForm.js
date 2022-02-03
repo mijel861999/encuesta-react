@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 export const InputForm = ({ index, question,questions, setQuestions }) => {
   const [questionInput, setQuestionInput] = useState('')
+  const [saved, setSaved] = useState(false)
 
   const handleInputChange = (e) => {
     setQuestionInput(e.target.value)
@@ -13,6 +14,7 @@ export const InputForm = ({ index, question,questions, setQuestions }) => {
     array[index] = questionInput;
 
     setQuestions(array)
+    setSaved(true)
   }
 
   return (
@@ -20,7 +22,7 @@ export const InputForm = ({ index, question,questions, setQuestions }) => {
       <label
         style={styles.label}
       >
-        Escribe tu pregunta N° {index}
+        Escribe tu pregunta N° {index + 1}
       </label>
 
       <input
@@ -33,6 +35,7 @@ export const InputForm = ({ index, question,questions, setQuestions }) => {
       />
       <button
         style={styles.button}
+        style={saved ? styles.buttonSaved : styles.button}
         onClick={handleInputSave}
       >
         Save
@@ -64,6 +67,14 @@ const styles = {
     height: '30px',
     color: 'white',
     background: 'black',
+    border: 'none',
+    cursor: 'pointer'
+  },
+  buttonSaved: {
+    width: '100%',
+    height: '30px',
+    color: 'white',
+    background: 'green',
     border: 'none',
     cursor: 'pointer'
   }
