@@ -7,7 +7,7 @@ export const Header = () => {
       <nav style={styles.nav}>
         <Link to='/' style={styles.link}>Crear</Link>
       </nav>
-      <h1 style={styles.title}>Encuesta</h1>
+      <h1 style={styles.title}>Exámenes</h1>
     </header>
   )
 }

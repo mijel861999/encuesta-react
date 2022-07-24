@@ -17,16 +17,43 @@ import { EncuestaCreada } from './pages/EncuestaCreada'
 function App () {
 
   const [questions, setQuestions] = useState([])
+  const [answers, setAnswers] = useState([])
 
   return (
     // <AppRouter />
     <div style={styles.app} className='App'>
       <Header />
       <Routes>
-        <Route path='/' element={<MainPage />} />
-        <Route path='/encuesta-opciones' element={<EncuestaOpciones />} />
-        <Route path='/encuesta-abierta' element={<EncuestaAbierta questions={questions} setQuestions={setQuestions}/>} />
-        <Route path='/encuesta-creada' element={<EncuestaCreada questions={questions} setQuestions={setQuestions} />} />
+        <Route
+          path='/'
+          element={<MainPage />}
+        />
+        <Route 
+          path='/encuesta-opciones'
+          element={<EncuestaOpciones />}
+        />
+        <Route
+          path='/encuesta-abierta'
+          element={
+            <EncuestaAbierta 
+              questions={questions}
+              setQuestions={setQuestions}
+              answers={answers}
+              setAnswers={setAnswers}
+            />
+          }
+        />
+        <Route
+          path='/encuesta-creada'
+          element={
+            <EncuestaCreada
+              questions={questions}
+              setQuestions={setQuestions}
+              answers={answers}
+              setAnswers={setAnswers}
+            />
+          } 
+        />
       </Routes>
     </div>
   )

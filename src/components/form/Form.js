@@ -2,32 +2,30 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { InputForm } from './InputForm'
+import { AnswerInputForm } from './AnswerInputForm'
 
-export const Form = ({ questions, setQuestions }) => {
-  // const [questions, setQuestions] = useState([])
-
-  const handleInputCreate = (e) => {
-    e.preventDefault()
-    console.log('Crear encuesta')
-    console.log(questions)
-  }
+export const Form = ({ questions, setQuestions, answers, setAnswers }) => {
 
   const handleAddInputForm = (e) => {
     e.preventDefault()
     setQuestions([...questions, ''])
+    setAnswers([...answers], '')
   }
 
   return (
     <form style={styles.form}>
       {
         questions.map(( question, index ) =>
-            <InputForm
-              key={index}
-              index={index}
-              question={question}
-              questions={questions}
-              setQuestions={setQuestions}
-            />
+          <InputForm
+            key={index}
+            index={index}
+            question={question}
+            answer={answers[index]}
+            questions={questions}
+            setQuestions={setQuestions}
+            answers={answers}
+            setAnswers={setAnswers}
+          />
         )
       }
 
@@ -37,13 +35,6 @@ export const Form = ({ questions, setQuestions }) => {
       >
         +
       </button>
-
-      {/* <button
-        onClick={handleInputCreate}
-        style={styles.button}
-      >
-        Crear encuesta
-      </button> */}
 
       <Link
         style={styles.link}
